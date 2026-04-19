@@ -1,0 +1,34 @@
+name: "NLP Retrieval Eval"
+
+corpus:
+  - "Machine learning enables computers to learn from data without explicit programming."
+  - "Natural language processing allows machines to understand human text."
+  - "Deep learning uses many-layer neural networks to learn complex representations."
+  - "Transformers use attention mechanisms and revolutionized NLP benchmarks."
+  - "Vector databases enable fast approximate nearest-neighbor search at scale."
+  - "Semantic search understands query intent rather than matching keywords."
+  - "Embeddings represent text as dense numerical vectors in a semantic space."
+  - "Retrieval-augmented generation combines search with language model generation."
+  - "Cosine similarity measures the angle between two vectors in high-dimensional space."
+  - "Large language models are trained on vast text corpora via self-supervision."
+
+cases:
+  - query: "How do computers learn from data?"
+    expected:
+      - "Machine learning enables computers"
+
+  - query: "What are transformers in AI?"
+    expected:
+      - "Transformers use attention"
+
+  - query: "How are words represented as numbers?"
+    expected:
+      - "Embeddings represent text"
+
+  - query: "What is RAG?"
+    expected:
+      - "Retrieval-augmented generation"
+
+  - query: "How to search by meaning not keywords?"
+    expected:
+      - "Semantic search"

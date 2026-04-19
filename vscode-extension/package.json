@@ -1,0 +1,52 @@
+{
+  "name": "embedx",
+  "displayName": "EmbedX",
+  "description": "Semantic search and document management via EmbedX API",
+  "version": "0.1.0",
+  "publisher": "embedx",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "embedx.search",
+        "title": "EmbedX: Search"
+      },
+      {
+        "command": "embedx.addSelection",
+        "title": "EmbedX: Add Selection"
+      },
+      {
+        "command": "embedx.showStats",
+        "title": "EmbedX: Show Stats"
+      }
+    ],
+    "configuration": {
+      "title": "EmbedX",
+      "properties": {
+        "embedx.serverUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8000",
+          "description": "URL of the running EmbedX API server"
+        },
+        "embedx.defaultTopK": {
+          "type": "number",
+          "default": 5,
+          "description": "Number of results returned by search"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}

@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "embedx"
+version = "0.1.0"
+description = "Cost-aware semantic memory and retrieval system for LLM applications (offline-first)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["embeddings", "semantic-search", "llm", "vector-database", "caching", "nlp"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+embeddings = [
+    "sentence-transformers>=2.2",
+]
+faiss = [
+    "faiss-cpu>=1.7",
+]
+openai = [
+    "openai>=1.0",
+    "tiktoken>=0.5",
+]
+server = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+]
+all = [
+    "sentence-transformers>=2.2",
+    "faiss-cpu>=1.7",
+    "openai>=1.0",
+    "tiktoken>=0.5",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1",
+    "mypy>=1.0",
+]
+
+[project.scripts]
+embedx = "embedx.cli.main:main"
+
+[project.urls]
+Homepage = "https://github.com/embedx/embedx"
+Repository = "https://github.com/embedx/embedx"
+Issues = "https://github.com/embedx/embedx/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["embedx*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short -q"
